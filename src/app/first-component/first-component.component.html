@@ -1,0 +1,15 @@
+<h2>Галерея картин</h2>
+<div class="gallery">
+  <div *ngFor="let painting of paintings" class="painting">
+    <img [src]="painting.image" [alt]="painting.title" (click)="selectPainting(painting)">
+    <h3>{{ painting.title }}</h3>
+    <p>{{ painting.artist }}</p>
+  </div>
+</div>
+
+<div *ngIf="selectedPainting" class="modal">
+  <h2>{{ selectedPainting.title }}</h2>
+  <p><strong>Автор:</strong> {{ selectedPainting.artist }}</p>
+  <p>{{ selectedPainting.description }}</p>
+  <button (click)="closeModal()">Закрити</button>
+</div>
